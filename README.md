@@ -13,6 +13,8 @@ Internet forum powered by Spring Framework [ongoing]
 - src:
   - main:
     - java/com/plkpiotr/forum:
+      - configuration:
+        - ApplicationInitializer.java
       - controller:
         - AnswerController.java
         - IndexController.java
@@ -28,7 +30,6 @@ Internet forum powered by Spring Framework [ongoing]
         - AnswerRepository.java
         - TopicRepository.java
         - UserRepository.java
-      - ForumApplication.java
     - resources:
       - static [TODO]
       - templates [TODO]
