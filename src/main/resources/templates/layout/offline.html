@@ -11,21 +11,17 @@
     <link href="/webjars/materializecss/0.100.2/css/materialize.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper container">
-            <ul class="left hide-on-med-and-down">
-                <li><a href="#">HTML/CSS</a></li>
-                <li><a href="#">Java</a></li>
-                <li><a href="#">C/C++</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">PHP</a></li>
-                <li><a href="#">SQL</a></li>
-                <li><a href="#">C#</a></li>
-                <li><a href="#">Python</a></li>
-                <li><a href="#">Ruby</a></li>
-            </ul>
-        </div>
-    </nav>
+    <ul id="slide-out" class="side-nav">
+        <li><a class="subheader">Topics</a></li>
+        <li><a class="waves-effect" href="#">Java SE</a></li>
+        <li><a class="waves-effect" href="#">Java EE</a></li>
+        <li><a class="waves-effect" href="#">JPA/Hibernate</a></li>
+        <li><a class="waves-effect" href="#">Spring</a></li>
+        <li><a class="waves-effect" href="#">HTML/CSS/JS</a></li>
+        <li><a class="subheader">Actions</a></li>
+        <li><a class="waves-effect" href="#">My profile</a></li>
+        <li><a class="waves-effect" href="#">Logout</a></li>
+    </ul>
     <section layout:fragment="content">
         <p>Default content</p>
     </section>
