@@ -1,10 +1,15 @@
 package com.plkpiotr.forum.entity;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class User {
 
     @Id
@@ -20,11 +25,14 @@ public class User {
     @Column(length = 64)
     private String introduction;
 
-    @OneToMany(mappedBy = "User")
-    private List<Topic> listOfTopics;
+    @CreatedDate
+    private LocalDateTime createdDate;
 
     @OneToMany(mappedBy = "User")
-    private List<Answer> listOfAnswers;
+    private List<Topic> topics;
+
+    @OneToMany(mappedBy = "User")
+    private List<Answer> answers;
 
     public long getId() {
         return id;
@@ -58,20 +66,28 @@ public class User {
         this.introduction = introduction;
     }
 
-    public List<Topic> getListOfTopics() {
-        return listOfTopics;
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
     }
 
-    public void setListOfTopics(List<Topic> listOfTopics) {
-        this.listOfTopics = listOfTopics;
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public List<Answer> getListOfAnswers() {
-        return listOfAnswers;
+    public List<Topic> getTopics() {
+        return topics;
     }
 
-    public void setListOfAnswers(List<Answer> listOfAnswers) {
-        this.listOfAnswers = listOfAnswers;
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     @Override

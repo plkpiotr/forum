@@ -1,11 +1,11 @@
-package com.plkpiotr.forum.configuration;
+package com.plkpiotr.forum;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApplicationInitializer {
+public class ForumApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(ApplicationInitializer.class, args);
+		SpringApplication.run(ForumApplication.class, args);
 	}
 }
