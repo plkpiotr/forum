@@ -4,7 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="utf-8"/>
-    <meta name="description" content="Programming forum powered by Spring Framework"/>
+    <meta name="description" content="Programming forum about Java powered by Spring Framework"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>Internet Forum</title>
@@ -12,16 +12,12 @@
 </head>
 <body>
     <ul id="slide-out" class="side-nav">
-        <li><a class="subheader">Topics</a></li>
-        <li><a class="waves-effect" href="#">Java SE</a></li>
-        <li><a class="waves-effect" href="#">Java EE</a></li>
-        <li><a class="waves-effect" href="#">JPA/Hibernate</a></li>
-        <li><a class="waves-effect" href="#">Spring</a></li>
-        <li><a class="waves-effect" href="#">HTML/CSS/JS</a></li>
-        <li><a class="subheader">Actions</a></li>
-        <li><a class="waves-effect" href="#">My profile</a></li>
-        <li><a class="waves-effect" href="#">Logout</a></li>
+        <li><a class="subheader">Links:</a></li>
+        <li><a class="waves-effect" href="../index.html">Home page</a></li>
+        <li><a class="waves-effect" href="../login.html">Login</a></li>
+        <li><a class="waves-effect" href="../register.html">Register</a></li>
     </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse btn">Menu</a>
     <section layout:fragment="content">
         <p>Default content</p>
     </section>
@@ -29,8 +25,8 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Programming forum</h5>
-                    <p class="white-text">Internet forum powered by Spring Framework</p>
+                    <h5 class="white-text">Java forum</h5>
+                    <p class="white-text">Programming forum about Java powered by Spring Framework</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>
@@ -50,5 +46,8 @@
     </footer>
     <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
     <script src="/webjars/materializecss/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $(".button-collapse").sideNav();
+    </script>
 </body>
 </html>
