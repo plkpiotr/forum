@@ -1,4 +1,8 @@
 package com.plkpiotr.forum.repository;
 
-public class AnswerRepository {
+import com.plkpiotr.forum.entity.Answer;
+import org.springframework.data.repository.CrudRepository;
+
+public interface AnswerRepository extends CrudRepository<Answer, Long> {
+
 }
