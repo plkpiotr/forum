@@ -15,7 +15,7 @@ public class Topic {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(nullable = false, length = 16)
     private String title;

@@ -14,7 +14,7 @@ public class Answer {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(nullable = false, length = 256)
     private String content;
