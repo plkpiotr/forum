@@ -27,6 +27,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.hibernate:hibernate-java8')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.webjars:materializecss:0.100.2')
+    compile('org.webjars:jquery:3.2.1')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

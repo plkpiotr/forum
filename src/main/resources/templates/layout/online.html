@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Programming forum powered by Spring Framework"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>Internet Forum</title>
+    <link href="/webjars/materializecss/0.100.2/css/materialize.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper container">
+            <ul class="left hide-on-med-and-down">
+                <li><a href="#">HTML/CSS</a></li>
+                <li><a href="#">Java</a></li>
+                <li><a href="#">C/C++</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">PHP</a></li>
+                <li><a href="#">SQL</a></li>
+                <li><a href="#">C#</a></li>
+                <li><a href="#">Python</a></li>
+                <li><a href="#">Ruby</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section layout:fragment="content">
+        <p>Default content</p>
+    </section>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Programming forum</h5>
+                    <p class="white-text">Internet forum powered by Spring Framework</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="white-text" href="https://github.com/plkpiotr">Github</a></li>
+                        <li><a class="white-text" href="https://forum.pasja-informatyki.pl/user/plkpiotr">Pasja Informatyki</a></li>
+                        <li><a class="white-text" href="https://plus.google.com/u/0/100065018101140624093">Google+</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                All rights reserved &nbsp;|&nbsp; plkpiotr &nbsp;|&nbsp; 09/2017
+            </div>
+        </div>
+    </footer>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/materializecss/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>
