@@ -1,12 +1,16 @@
 package com.plkpiotr.forum.entity;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "topic")
 public class Topic {
 
     @Id
@@ -22,11 +26,17 @@ public class Topic {
     @Column(nullable = false, length = 16)
     private String category;
 
+    @CreatedDate
+    private LocalDateTime createdDate;
+
+    @LastModifiedDate
+    private LocalDateTime lastModifiedDate;
+
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
 
-    @OneToMany(mappedBy = "Topic")
+    @OneToMany(mappedBy = "topic")
     private List<Answer> answers;
 
     public long getId() {
@@ -59,6 +69,22 @@ public class Topic {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public LocalDateTime getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 
     public User getUser() {

@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "user")
 public class User {
 
     @Id
@@ -28,10 +29,10 @@ public class User {
     @CreatedDate
     private LocalDateTime createdDate;
 
-    @OneToMany(mappedBy = "User")
+    @OneToMany(mappedBy = "user")
     private List<Topic> topics;
 
-    @OneToMany(mappedBy = "User")
+    @OneToMany(mappedBy = "user")
     private List<Answer> answers;
 
     public long getId() {
