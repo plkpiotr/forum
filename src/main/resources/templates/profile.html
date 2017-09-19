@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="layout/online">
 <head>
     <title>Index | JF</title>
 </head>
 <body>
     <section layout:fragment="content">
-        
+        Logged in as <span sec:authentication="name"/> with authorities: <span sec:authentication="authorities"/>
     </section>
 </body>
 </html>
