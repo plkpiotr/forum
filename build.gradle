@@ -30,6 +30,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.webjars:materializecss:0.100.2')
     compile('org.webjars:jquery:3.2.1')
+    compile('org.springframework.boot:spring-boot-starter-security')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

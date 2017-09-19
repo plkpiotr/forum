@@ -4,10 +4,10 @@ import com.plkpiotr.forum.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RunAtStart {
+public class RepositoryInitializer {
     private final UserRepository userRepository;
 
-    public RunAtStart(UserRepository userRepository) {
+    public RepositoryInitializer(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
