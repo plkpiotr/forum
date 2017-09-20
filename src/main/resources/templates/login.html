@@ -19,6 +19,9 @@
             <div>
                 <input type="submit" value="Sign In" />
             </div>
+            <div id="errorMessage" class="card-panel red lighten-2" th:if="${error}">
+                <span class="card-title" th:text="${error}"></span>
+            </div>
         </form>
     </section>
 </body>

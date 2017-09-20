@@ -14,14 +14,16 @@ Internet forum powered by Spring Framework [ongoing]
   - main:
     - java/com/plkpiotr/forum:
       - configuration:
-        - ApplicationInitializer.java
+        - AdditionalLoginConfiguration.java
+        - RepositoryInitializer.java
+        - SecurityConfiguration.java
       - controller:
-        - AnswerController.java
         - IndexController.java
         - LoginController.java
+        - ProfileController.java
         - RegisterController.java
         - TopicController.java
-        - UserController.java
+        - TopicsController.java
       - entity:
         - Answer.java
         - Topic.java
@@ -30,12 +32,22 @@ Internet forum powered by Spring Framework [ongoing]
         - AnswerRepository.java
         - TopicRepository.java
         - UserRepository.java
+      - ForumApplication.java [main class]
     - resources:
       - static [TODO]
-      - templates [TODO]
+      - templates:
+        - layout:
+          - offline.html
+          - online.html
+        - index.html
+        - login.html
+        - profile.html
+        - register.html
+        - topic.html
+        - topics.html
       - application.properties
   - test/java/com/plkpiotr/forum
-    - [TODO]
+    - ForumApplicationTests.java [TODO]
 - build.gradle
 ## Comments
 [TODO]

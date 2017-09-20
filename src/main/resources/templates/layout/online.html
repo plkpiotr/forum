@@ -11,18 +11,23 @@
     <link href="/webjars/materializecss/0.100.2/css/materialize.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <ul id="slide-out" class="side-nav">
-        <li><a class="subheader">Topics:</a></li>
-        <li><a class="waves-effect" href="#">Java SE</a></li>
-        <li><a class="waves-effect" href="#">Java EE</a></li>
-        <li><a class="waves-effect" href="#">JPA/Hibernate</a></li>
-        <li><a class="waves-effect" href="#">Spring</a></li>
-        <li><a class="waves-effect" href="#">HTML/CSS/JS</a></li>
-        <li><a class="subheader">Other:</a></li>
-        <li><a class="waves-effect" href="#">My profile</a></li>
-        <li><a class="waves-effect" href="/logout">Logout</a></li>
-    </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse btn">Menu</a>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <ul id="nav-left" class="left hide-on-med-and-down">
+                    <li><a href="#">Java SE</a></li>
+                    <li><a href="#">Java EE</a></li>
+                    <li><a href="#">JPA/Hibernate</a></li>
+                    <li><a href="#">Spring</a></li>
+                    <li><a href="#">HTML/CSS/JS</a></li>
+                </ul>
+                <ul id="nav-right" class="right hide-on-med-and-down">
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <section layout:fragment="content">
         <p>Default content</p>
     </section>
@@ -30,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Java Forum</h5>
+                    <h5 class="white-text">JF</h5>
                     <p class="white-text">Programming forum about Java powered by Spring Framework</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
@@ -51,8 +56,5 @@
     </footer>
     <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
     <script src="/webjars/materializecss/0.100.2/js/materialize.min.js"></script>
-    <script>
-        $(".button-collapse").sideNav();
-    </script>
 </body>
 </html>

@@ -2,23 +2,28 @@ package com.plkpiotr.forum.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "user")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(nullable = false, length = 10)
-    private String nick;
+    private String username;
 
     @Column(nullable = false, length = 32)
     private String password;
@@ -39,20 +44,46 @@ public class User {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNick() {
-        return nick;
+    @Override
+    public String getUsername() {
+        return username;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Arrays.asList(new SimpleGrantedAuthority("USER"));
     }
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 
     public void setPassword(String password) {
@@ -93,7 +124,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", nick='" + nick + '\'' + ", password='" + password + '\'' + ", " +
+        return "User{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\'' + ", " +
                 "introduction='" + Optional.ofNullable(introduction) + '\'' + '}';
     }
 }

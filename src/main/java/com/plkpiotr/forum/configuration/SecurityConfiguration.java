@@ -1,5 +1,6 @@
 package com.plkpiotr.forum.configuration;
 
+import com.plkpiotr.forum.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,19 +14,22 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    public void configureAuthorization(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.inMemoryAuthentication()
-                .withUser("piotr").password("piotrek").roles("user")
-                .and()
-                .withUser("nowy").password("nowy").roles("user", "admin");
-    }
+    private UserRepository userRepository;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests()
+        httpSecurity
+                .authorizeRequests()
                 .antMatchers("/", "/login", "register").permitAll()
+                .antMatchers("/profile/").hasRole("USER")
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/profile")
+                .and().formLogin().loginPage("/login")
+                .defaultSuccessUrl("/profile")
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(username -> userRepository.getUserByUsername(username));
     }
 }
