@@ -7,22 +7,27 @@
 </head>
 <body>
     <section layout:fragment="content">
-        <form th:action="@{/login}" method="post">
-            <div>
-                <label> User Name : <input type="text" name="username" />
-                </label>
-            </div>
-            <div>
-                <label> Password: <input type="password" name="password" />
-                </label>
-            </div>
-            <div>
-                <input type="submit" value="Sign In" />
-            </div>
-            <div id="errorMessage" class="card-panel red lighten-2" th:if="${error}">
-                <span class="card-title" th:text="${error}"></span>
-            </div>
-        </form>
+        <div class="container">
+            <h2 class="center">Login</h2>
+            <h4 class="center">Get into the Java Forum</h4>
+            <p class="center flow-text" th:if="${param.error}">Invalid username or password</p>
+            <form th:action="@{/login}" method="post">
+                <div class="row">
+                    <label> Nick: <input type="text" name="username" maxlength="10" required="required"/>
+                    </label>
+                </div>
+                <div class="row">
+                    <label> Password: <input type="password" name="password" maxlength="10" required="required"/>
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="col s12 center">
+                        <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Get into</button>
+                    </div>
+                </div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+        </div>
     </section>
 </body>
 </html>
