@@ -2,12 +2,12 @@ package com.plkpiotr.forum.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexController {
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String displayIndex(Model model) {
         return "index";
     }
