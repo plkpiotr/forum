@@ -28,8 +28,10 @@ public class TopicsController {
     }
 
     @GetMapping("topics/{category}")
-    List<Topic> findTopicByCategory(@PathVariable String category) {
-        return topicRepository.findTopicByCategory(category);
+    public String displayTopicsByCategory(@PathVariable String category) {
+        List<Topic> topicsByCategory = topicRepository.findTopicByCategory(category);
+        System.out.println(topicsByCategory);
+        return "topics";
     }
 
 
