@@ -15,9 +15,9 @@ Internet forum powered by Spring Framework [ongoing]
     - java/com/plkpiotr/forum:
       - configuration:
         - AdditionalLoginConfiguration.java
-        - RepositoryInitializer.java
         - SecurityConfiguration.java
       - controller:
+        - AnswersController.java
         - IndexController.java
         - LoginController.java
         - ProfileController.java
@@ -39,6 +39,7 @@ Internet forum powered by Spring Framework [ongoing]
         - layout:
           - offline.html
           - online.html
+        - answers.html
         - index.html
         - login.html
         - profile.html

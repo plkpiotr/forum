@@ -24,14 +24,14 @@ public class AnswersController {
 
     @GetMapping("answers/{id}")
     public String displayAnswersByUser(@PathVariable String id, Model model) {
-        List<Answer> answers = answerRepository.findAnswerByUser_Id(Long.parseLong(id));
+        List<Answer> answers = answerRepository.findAnswerByUser_IdOrderByLastModifiedDateDesc(Long.parseLong(id));
         model.addAttribute("answers", answers);
         return "answers";
     }
 
     @GetMapping("answers/useful/{id}")
     public String displayUsefulAnswersByUser(@PathVariable String id, Model model) {
-        List<Answer> answers = answerRepository.findAnswerByUser_IdAndUseful(Long.parseLong(id), true);
+        List<Answer> answers = answerRepository.findAnswerByUser_IdAndUsefulOrderByLastModifiedDateDesc(Long.parseLong(id), true);
         model.addAttribute("answers", answers);
         return "answers";
     }

@@ -10,6 +10,6 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
     long countAnswersByUser_Id(long id);
     long countAnswersByUser_IdAndUseful(long user_id, boolean useful);
 
-    List<Answer> findAnswerByUser_Id(long id);
-    List<Answer> findAnswerByUser_IdAndUseful(long user_id, boolean useful);
+    List<Answer> findAnswerByUser_IdOrderByLastModifiedDateDesc(long id);
+    List<Answer> findAnswerByUser_IdAndUsefulOrderByLastModifiedDateDesc(long user_id, boolean useful);
 }
