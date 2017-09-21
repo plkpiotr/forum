@@ -7,7 +7,9 @@
 </head>
 <body>
     <section layout:fragment="content">
-        
+        <p th:each="topic : ${allTopics}"
+           th:text="${topic.title}">topic
+        </p>
     </section>
 </body>
 </html>
