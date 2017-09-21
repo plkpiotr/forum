@@ -7,6 +7,14 @@
 </head>
 <body>
     <section layout:fragment="content">
+        <div class="container">
+            <div class="row">
+                <p class="flow-text" th:text="${header}">Header</p>
+            </div>
+            <div class="row">
+                <p class="flow-text" th:text="${topics.size()}">Number of topics</p>
+            </div>
+        </div>
         <p th:each="topic : ${topics}"
            th:text="${topic.title}">Topic's title
         </p>

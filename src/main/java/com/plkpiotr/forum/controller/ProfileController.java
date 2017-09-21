@@ -33,9 +33,9 @@ public class ProfileController {
 
         User user = userRepository.getUserByUsername(username);
 
-        long numberOfTopics = topicRepository.countTopicsByUser_Id(user.getId());
-        long numberOfAnswers = answerRepository.countAnswersByUser_Id(user.getId());
-        long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(user.getId(), true);
+        Long numberOfTopics = topicRepository.countTopicsByUser_Id(user.getId());
+        Long numberOfAnswers = answerRepository.countAnswersByUser_Id(user.getId());
+        Long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(user.getId(), true);
 
         model.addAttribute("user", user);
         model.addAttribute("numberOfTopics", numberOfTopics);
@@ -45,12 +45,12 @@ public class ProfileController {
     }
 
     @GetMapping("profile/{id}")
-    public String displayProfileById(@PathVariable long id, Model model) {
+    public String displayProfileById(@PathVariable Long id, Model model) {
         User user = userRepository.getUserById(id);
 
-        long numberOfTopics = topicRepository.countTopicsByUser_Id(id);
-        long numberOfAnswers = answerRepository.countAnswersByUser_Id(id);
-        long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(id, true);
+        Long numberOfTopics = topicRepository.countTopicsByUser_Id(id);
+        Long numberOfAnswers = answerRepository.countAnswersByUser_Id(id);
+        Long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(id, true);
 
         model.addAttribute("user", user);
         model.addAttribute("numberOfTopics", numberOfTopics);

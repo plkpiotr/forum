@@ -24,21 +24,44 @@ public class TopicsController {
     @GetMapping("topics")
     public String displayAllTopics(Model model) {
         List<Topic> topics = topicRepository.findAll(new Sort(Sort.Direction.ASC, "lastModifiedDate"));
+        String header = setHeader("all");
         model.addAttribute("topics", topics);
+        model.addAttribute("header", header);
         return "topics";
     }
 
     @GetMapping("topics/{category}")
     public String displayTopicsByCategory(@PathVariable String category, Model model) {
         List<Topic> topics = topicRepository.findTopicsByCategoryOrderByLastModifiedDateDesc(category);
+        String header = setHeader(category);
         model.addAttribute("topics", topics);
+        model.addAttribute("header", header);
         return "topics";
     }
 
     @GetMapping("topics/user/{id}")
     public String displayTopicsByUser(@PathVariable String id, Model model) {
         List<Topic> topics = topicRepository.findTopicsByUser_IdOrderByLastModifiedDateDesc(Long.valueOf(id));
+        String header = setHeader("user");
         model.addAttribute("topics", topics);
+        model.addAttribute("header", header);
         return "topics";
+    }
+
+    private String setHeader(String category) {
+        switch (category) {
+            case "se":
+                return "Java Standard Edition";
+            case "ee":
+                return "Java Enterprise Edition";
+            case "jpa":
+                return "Java Persistence API & Hibernate";
+            case "spring":
+                return "Spring Framework";
+            case "all":
+                return "All topics";
+            default:
+                return "User's topics";
+        }
     }
 }
