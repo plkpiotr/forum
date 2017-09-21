@@ -9,6 +9,7 @@ import java.util.List;
 public interface TopicRepository extends JpaRepository<Topic, Long> {
 
     List<Topic> findTopicsByCategory(String category);
-    List<Topic> findTopicsByUser_Id(Long id);
+    List<Topic> findTopicsByUser_Id(long id);
+    long countTopicsByUser_Id(long id);
 
 }

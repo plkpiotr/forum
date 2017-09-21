@@ -9,10 +9,16 @@
     <section layout:fragment="content">
         <div class="container">
             <div class="row">
+                <div class="col s12 center" style="padding-top: 3%;">
+                    <span class="flow-text" th:text="Profile">Profile</span>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col s12 m6">
-                    <span th:text="${user.getUsername()}">topic</span>
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h4>Personal data:</h4></li>
+                    <ul class="collection">
+                        <li class="collection-item center">
+                            Personal data
+                        </li>
                         <li class="collection-item">
                             <span class="badge">
                                 <span th:text="${user.getUsername()}">Nick</span>
@@ -31,22 +37,33 @@
                     </ul>
                 </div>
                 <div class="col s12 m6">
-                    <div class="collection">
-                        <a th:href="@{'/topics/user/' + ${user.getId()}}" class="collection-item">
-                            <span class="badge">1</span>Topics</a>
-                        <a href="#!" class="collection-item"><span class="new badge">4</span>Answers</a>
-                        <a href="#!" class="collection-item">Alan</a>
-                        <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
-                    </div>
+                    <ul class="collection">
+                        <li class="collection-item center">Activity</li>
+                        <li>
+                            <a th:href="@{'/topics/user/' + ${user.getId()}}" class="collection-item">
+                                <span class="badge">
+                                    <span th:text="${numberOfTopics}"></span>
+                                </span>Topics:
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{'/answers/user/' + ${user.getId()}}" class="collection-item">
+                                <span class="badge">
+                                    <span th:text="${numberOfAnswers}"></span>
+                                </span>Answers:
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{'/answers/user/' + ${user.getId()}}" class="collection-item">
+                                <span class="badge">
+                                    <span th:text="${numberOfAnswers}"></span>
+                                </span>Helped:
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <p th:text="${user.getId()}">topic</p>
-        <i class="large material-icons">insert_chart</i>
-        <p th:text="${user.getUsername()}">topic</p>
-        <p th:text="${user.displayContentOfOptional()}">topic</p>
-        <p th:text="${user.getPassword()}">topic</p>
-        <p th:text="${user.getCreatedDate()}">topic</p>
     </section>
 </body>
 </html>
