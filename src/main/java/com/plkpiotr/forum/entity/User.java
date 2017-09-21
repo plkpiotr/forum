@@ -122,9 +122,10 @@ public class User implements UserDetails {
         this.answers = answers;
     }
 
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\'' + ", " +
-                "introduction='" + Optional.ofNullable(introduction) + '\'' + '}';
+    public String displayContentOfOptional() {
+        if (Optional.ofNullable(introduction).isPresent())
+            return Optional.ofNullable(introduction).get();
+        else
+            return "";
     }
 }

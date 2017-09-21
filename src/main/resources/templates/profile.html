@@ -8,7 +8,13 @@
 </head>
 <body>
     <section layout:fragment="content">
-        Logged in as <span sec:authentication="name"></span> with authorities: <span sec:authentication="authorities"></span>
+        Logged in as <span sec:authentication="name"></span>
+        with authorities: <span sec:authentication="authorities"></span>
+        <p th:text="${user.getId()}">topic</p>
+        <p th:text="${user.getUsername()}">topic</p>
+        <p th:text="${user.displayContentOfOptional()}">topic</p>
+        <p th:text="${user.getPassword()}">topic</p>
+        <p th:text="${user.getCreatedDate()}">topic</p>
     </section>
 </body>
 </html>
