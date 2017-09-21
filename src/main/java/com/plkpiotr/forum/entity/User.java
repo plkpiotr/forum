@@ -7,7 +7,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -127,5 +129,11 @@ public class User implements UserDetails {
             return Optional.ofNullable(introduction).get();
         else
             return "";
+    }
+
+    public LocalDate displayParsedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        String text = this.createdDate.format(formatter);
+        return LocalDate.parse(text, formatter);
     }
 }

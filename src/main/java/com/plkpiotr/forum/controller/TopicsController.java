@@ -58,6 +58,8 @@ public class TopicsController {
                 return "Java Persistence API & Hibernate";
             case "spring":
                 return "Spring Framework";
+            case "web":
+                return "HTML/CSS/JavaScript";
             case "all":
                 return "All topics";
             default:

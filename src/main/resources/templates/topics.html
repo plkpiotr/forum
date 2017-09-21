@@ -8,16 +8,27 @@
 <body>
     <section layout:fragment="content">
         <div class="container">
-            <div class="row">
-                <p class="flow-text" th:text="${header}">Header</p>
+            <div class="row" style="padding-top: 3%;">
+                <span class="flow-text left" th:text="${header}">Header</span>
+                <span class="flow-text right" th:text="|Number of topics: | + ${topics.size()}">Number of topics</span>
             </div>
             <div class="row">
-                <p class="flow-text" th:text="${topics.size()}">Number of topics</p>
+                <table class="highlight bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <th:block th:each="topic : ${topics}">
+                        <tbody>
+                            <tr>
+                                <td th:text="${topic.getTitle()}">Topic's title</td>
+                            </tr>
+                        </tbody>
+                    </th:block>
+                </table>
             </div>
         </div>
-        <p th:each="topic : ${topics}"
-           th:text="${topic.title}">Topic's title
-        </p>
     </section>
 </body>
 </html>
