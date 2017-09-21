@@ -29,7 +29,14 @@ public class TopicsController {
 
     @GetMapping("topics/{category}")
     public String displayTopicsByCategory(@PathVariable String category, Model model) {
-        List<Topic> topics = topicRepository.findTopicByCategory(category);
+        List<Topic> topics = topicRepository.findTopicsByCategory(category);
+        model.addAttribute("topics", topics);
+        return "topics";
+    }
+
+    @GetMapping("topics/user/{id}")
+    public String displayTopicsByUser(@PathVariable String id, Model model) {
+        List<Topic> topics = topicRepository.findTopicsByUser_Id(Long.valueOf(id));
         model.addAttribute("topics", topics);
         return "topics";
     }

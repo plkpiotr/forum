@@ -31,6 +31,8 @@ public class ProfileController {
 
     @GetMapping("profile/{id}")
     public String displayProfileById(@PathVariable Long id, Model model) {
+        User user = userRepository.getUserById(id);
+        model.addAttribute("user", user);
         return "profile";
     }
 }

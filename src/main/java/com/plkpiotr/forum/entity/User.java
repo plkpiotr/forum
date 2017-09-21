@@ -28,7 +28,7 @@ public class User implements UserDetails {
     @Column(nullable = false, length = 32)
     private String password;
 
-    @Column(length = 64)
+    @Column(length = 32)
     private String introduction;
 
     @CreatedDate

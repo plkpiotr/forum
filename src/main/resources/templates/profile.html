@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="layout/online">
 <head>
-    <title>Index | JF</title>
+    <title th:text="${user.getUsername() + ' | JF'}">Title of profile view</title>
 </head>
 <body>
     <section layout:fragment="content">
-        Logged in as <span sec:authentication="name"></span>
-        with authorities: <span sec:authentication="authorities"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <span th:text="${user.getUsername()}">topic</span>
+                    <ul class="collection with-header">
+                        <li class="collection-header"><h4>Personal data:</h4></li>
+                        <li class="collection-item">
+                            <span class="badge">
+                                <span th:text="${user.getUsername()}">Nick</span>
+                            </span>Nick:
+                        </li>
+                        <li class="collection-item">
+                            <span class="badge">
+                                <span th:text="${user.displayContentOfOptional()}">Introduction</span>
+                            </span>Introduction:
+                        </li>
+                        <li class="collection-item">
+                            <span class="badge">
+                                <span th:text="${user.getCreatedDate()}">Created date</span>
+                            </span>Registered since:
+                        </li>
+                    </ul>
+                </div>
+                <div class="col s12 m6">
+                    <div class="collection">
+                        <a th:href="@{'/topics/user/' + ${user.getId()}}" class="collection-item">
+                            <span class="badge">1</span>Topics</a>
+                        <a href="#!" class="collection-item"><span class="new badge">4</span>Answers</a>
+                        <a href="#!" class="collection-item">Alan</a>
+                        <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <p th:text="${user.getId()}">topic</p>
+        <i class="large material-icons">insert_chart</i>
         <p th:text="${user.getUsername()}">topic</p>
         <p th:text="${user.displayContentOfOptional()}">topic</p>
         <p th:text="${user.getPassword()}">topic</p>
