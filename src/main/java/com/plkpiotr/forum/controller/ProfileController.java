@@ -30,23 +30,33 @@ public class ProfileController {
     public String displayMyProfile(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
+
         User user = userRepository.getUserByUsername(username);
-        Long numberOfTopics = topicRepository.countTopicsByUser_Id(user.getId());
-        Long numberOfAnswers = answerRepository.countAnswersByUser_Id(user.getId());
+
+        long numberOfTopics = topicRepository.countTopicsByUser_Id(user.getId());
+        long numberOfAnswers = answerRepository.countAnswersByUser_Id(user.getId());
+        long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(user.getId(), true);
+
         model.addAttribute("user", user);
         model.addAttribute("numberOfTopics", numberOfTopics);
         model.addAttribute("numberOfAnswers", numberOfAnswers);
+        model.addAttribute("numberOfHelped", numberOfHelped);
         return "profile";
     }
 
     @GetMapping("profile/{id}")
     public String displayProfileById(@PathVariable long id, Model model) {
         User user = userRepository.getUserById(id);
-        Long numberOfTopics = topicRepository.countTopicsByUser_Id(id);
-        Long numberOfAnswers = answerRepository.countAnswersByUser_Id(id);
+
+        long numberOfTopics = topicRepository.countTopicsByUser_Id(id);
+        long numberOfAnswers = answerRepository.countAnswersByUser_Id(id);
+        long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(id, true);
+
         model.addAttribute("user", user);
         model.addAttribute("numberOfTopics", numberOfTopics);
         model.addAttribute("numberOfAnswers", numberOfAnswers);
+        model.addAttribute("numberOfHelped", numberOfHelped);
+
         return "profile";
     }
 }
