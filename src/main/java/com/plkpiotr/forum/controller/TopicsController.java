@@ -22,20 +22,15 @@ public class TopicsController {
 
     @GetMapping("topics")
     public String displayAllTopics(Model model) {
-        List<Topic> allTopics = topicRepository.findAll();
-        model.addAttribute("allTopics", allTopics);
+        List<Topic> topics = topicRepository.findAll();
+        model.addAttribute("topics", topics);
         return "topics";
     }
 
     @GetMapping("topics/{category}")
-    public String displayTopicsByCategory(@PathVariable String category) {
-        List<Topic> topicsByCategory = topicRepository.findTopicByCategory(category);
-        System.out.println(topicsByCategory);
+    public String displayTopicsByCategory(@PathVariable String category, Model model) {
+        List<Topic> topics = topicRepository.findTopicByCategory(category);
+        model.addAttribute("topics", topics);
         return "topics";
     }
-
-
-//    public String displayJavaStandardEditionTopics(Model model) {
-//        List<Topic> javaStandardEditionTopics = topicRepository.findTopicByCategory(@PathVariable String category)
-//    }
 }
