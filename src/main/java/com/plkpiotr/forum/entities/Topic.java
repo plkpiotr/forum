@@ -112,7 +112,7 @@ public class Topic {
     }
 
     public LocalDate displayParsedLastModifiedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         String text = this.createdDate.format(formatter);
         return LocalDate.parse(text, formatter);
     }

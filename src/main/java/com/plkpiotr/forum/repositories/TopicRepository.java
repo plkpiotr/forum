@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface TopicRepository extends JpaRepository<Topic, Long> {
 
-    List<Topic> findTopicsByCategoryOrderByLastModifiedDateDesc(String category);
-    List<Topic> findTopicsByUser_IdOrderByLastModifiedDateDesc(Long id);
     Long countTopicsByUser_Id(Long id);
 
+    List<Topic> findTopicsByCategoryOrderByLastModifiedDateDesc(String category);
+    List<Topic> findTopicsByUser_IdOrderByLastModifiedDateDesc(Long id);
 }

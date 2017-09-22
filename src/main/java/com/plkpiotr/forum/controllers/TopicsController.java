@@ -1,6 +1,7 @@
 package com.plkpiotr.forum.controllers;
 
 import com.plkpiotr.forum.entities.Topic;
+import com.plkpiotr.forum.repositories.AnswerRepository;
 import com.plkpiotr.forum.repositories.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -15,10 +16,12 @@ import java.util.List;
 public class TopicsController {
 
     private final TopicRepository topicRepository;
+    private final AnswerRepository answerRepository;
 
     @Autowired
-    public TopicsController(TopicRepository topicRepository) {
+    public TopicsController(TopicRepository topicRepository, AnswerRepository answerRepository) {
         this.topicRepository = topicRepository;
+        this.answerRepository = answerRepository;
     }
 
     @GetMapping("topics")
@@ -27,6 +30,7 @@ public class TopicsController {
         String header = setHeader("all");
         model.addAttribute("topics", topics);
         model.addAttribute("header", header);
+        model.addAttribute("answerRepository", answerRepository);
         return "topics";
     }
 
@@ -36,6 +40,7 @@ public class TopicsController {
         String header = setHeader(category);
         model.addAttribute("topics", topics);
         model.addAttribute("header", header);
+        model.addAttribute("answerRepository", answerRepository);
         return "topics";
     }
 
@@ -45,6 +50,7 @@ public class TopicsController {
         String header = setHeader("user");
         model.addAttribute("topics", topics);
         model.addAttribute("header", header);
+        model.addAttribute("answerRepository", answerRepository);
         return "topics";
     }
 
