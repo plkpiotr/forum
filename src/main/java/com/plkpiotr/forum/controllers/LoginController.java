@@ -1,14 +1,14 @@
-package com.plkpiotr.forum.controller;
+package com.plkpiotr.forum.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TopicController {
+public class LoginController {
 
-    @GetMapping("topic")
-    public String displayTopic(Model model) {
-        return "topic";
+    @GetMapping("login")
+    public String displayLogin(Model model) {
+        return "login";
     }
 }

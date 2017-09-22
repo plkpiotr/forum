@@ -1,7 +1,6 @@
-package com.plkpiotr.forum.repository;
+package com.plkpiotr.forum.repositories;
 
-import com.plkpiotr.forum.entity.Topic;
-import com.plkpiotr.forum.entity.User;
+import com.plkpiotr.forum.entities.Topic;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

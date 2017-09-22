@@ -1,9 +1,9 @@
-package com.plkpiotr.forum.controller;
+package com.plkpiotr.forum.controllers;
 
-import com.plkpiotr.forum.entity.User;
-import com.plkpiotr.forum.repository.AnswerRepository;
-import com.plkpiotr.forum.repository.TopicRepository;
-import com.plkpiotr.forum.repository.UserRepository;
+import com.plkpiotr.forum.entities.User;
+import com.plkpiotr.forum.repositories.AnswerRepository;
+import com.plkpiotr.forum.repositories.TopicRepository;
+import com.plkpiotr.forum.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

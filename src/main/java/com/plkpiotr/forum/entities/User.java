@@ -1,4 +1,4 @@
-package com.plkpiotr.forum.entity;
+package com.plkpiotr.forum.entities;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;

@@ -1,7 +1,7 @@
-package com.plkpiotr.forum.controller;
+package com.plkpiotr.forum.controllers;
 
-import com.plkpiotr.forum.entity.Topic;
-import com.plkpiotr.forum.repository.TopicRepository;
+import com.plkpiotr.forum.entities.Topic;
+import com.plkpiotr.forum.repositories.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;

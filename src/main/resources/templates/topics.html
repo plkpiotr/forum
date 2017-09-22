@@ -16,12 +16,18 @@
                 <table class="highlight bordered">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Created</th>
+                            <th>Modified</th>
                         </tr>
                     </thead>
                     <th:block th:each="topic : ${topics}">
                         <tbody>
                             <tr>
+                                <td th:text="${topic.getTitle()}">Topic's title</td>
+                                <td th:text="${topic.get()}">Topic's title</td>
+                                <td th:text="${topic.getTitle()}">Topic's title</td>
                                 <td th:text="${topic.getTitle()}">Topic's title</td>
                             </tr>
                         </tbody>

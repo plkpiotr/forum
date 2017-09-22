@@ -1,7 +1,7 @@
-package com.plkpiotr.forum.controller;
+package com.plkpiotr.forum.controllers;
 
-import com.plkpiotr.forum.entity.Answer;
-import com.plkpiotr.forum.repository.AnswerRepository;
+import com.plkpiotr.forum.entities.Answer;
+import com.plkpiotr.forum.repositories.AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
