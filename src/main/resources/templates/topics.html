@@ -13,27 +13,31 @@
                 <blockquote class="flow-text right" th:text="|Number of topics: | + ${topics.size()}">Number of topics</blockquote>
             </div>
             <div class="row">
-                <table class="highlight bordered centered">
+                <table class="striped bordered centered">
                     <thead>
-                        <tr>
-                            <th>Answers</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Modified</th>
-                            <th>Created</th>
-                        </tr>
+                    <tr>
+                        <th>Answers</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Created</th>
+                        <th>Enter</th>
+                    </tr>
                     </thead>
+                    <tbody>
                     <th:block th:each="topic : ${topics}">
-                        <tbody>
-                            <tr>
-                                <td th:text="${answerRepository.countAnswerByTopic_Id(topic.getId())}">Topic's title</td>
-                                <td th:text="${topic.getTitle()}">Topic's title</td>
-                                <td th:text="${topic.getUser().getUsername()}">Topic's author</td>
-                                <td th:text="${topic.displayParsedLastModifiedDate()}">Topic's last modified date</td>
-                                <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
-                            </tr>
-                        </tbody>
+                        <tr>
+                            <td th:text="${answerRepository.countAnswerByTopic_Id(topic.getId())}">Number of answers</td>
+                            <td th:text="${topic.getTitle()}">Topic's title</td>
+                            <td th:text="${topic.getUser().getUsername()}">Topic's author</td>
+                            <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
+                            <td>
+                                <a th:href="@{'/topic/' + ${topic.getId()}}" style="display: block;">
+                                    <i class="material-icons" style="color: #26a69a">arrow_forward</i>
+                                </a>
+                            </td>
+                        </tr>
                     </th:block>
+                    </tbody>
                 </table>
             </div>
         </div>

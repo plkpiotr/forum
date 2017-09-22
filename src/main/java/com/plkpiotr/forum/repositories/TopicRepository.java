@@ -9,6 +9,8 @@ public interface TopicRepository extends JpaRepository<Topic, Long> {
 
     Long countTopicsByUser_Id(Long id);
 
+    Topic findTopicById(Long id);
+
     List<Topic> findTopicsByCategoryOrderByLastModifiedDateDesc(String category);
     List<Topic> findTopicsByUser_IdOrderByLastModifiedDateDesc(Long id);
 }

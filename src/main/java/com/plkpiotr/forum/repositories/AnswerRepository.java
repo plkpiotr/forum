@@ -13,4 +13,5 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
 
     List<Answer> findAnswerByUser_IdOrderByLastModifiedDateDesc(Long id);
     List<Answer> findAnswerByUser_IdAndUsefulOrderByLastModifiedDateDesc(Long user_id, boolean useful);
+    List<Answer> findAnswerByTopic_Id(Long topic_id);
 }
