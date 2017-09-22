@@ -28,7 +28,13 @@
                         <tr>
                             <td th:text="${answerRepository.countAnswerByTopic_Id(topic.getId())}">Number of answers</td>
                             <td th:text="${topic.getTitle()}">Topic's title</td>
-                            <td th:text="${topic.getUser().getUsername()}">Topic's author</td>
+                            <td>
+                                <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">
+                                    <div class="chip" th:text="${topic.getUser().getUsername()}">
+                                        Topic's author
+                                    </div>
+                                </a>
+                            </td>
                             <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
                             <td>
                                 <a th:href="@{'/topic/' + ${topic.getId()}}" class="btn btn-floating pulse">
@@ -42,5 +48,9 @@
             </div>
         </div>
     </section>
+    <!--/*@thymesVar id="header" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="topics" type="java.util.List"*/-->
+    <!--/*@thymesVar id="answerRepository" type="com.plkpiotr.forum.repositories.AnswerRepository"*/-->
+    <!--/*@thymesVar id="countAnswerByTopic_Id" type="com.plkpiotr.forum.repositories.AnswerRepository"*/-->
 </body>
 </html>

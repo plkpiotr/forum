@@ -12,7 +12,11 @@
                 <blockquote class="flow-text left" th:text="${topic.getTitle()}">Topic's title</blockquote>
                 <blockquote class="flow-text right" th:text="|Number of answers: | + ${answers.size()}">Number of answers</blockquote>
             </div>
+            <code th:text="${topic.getContent()}">Code</code>
         </div>
     </section>
+    <!--/*@thymesVar id="topic" type="com.plkpiotr.forum.entities.Topic"*/-->
+    <!--/*@thymesVar id="getTitle" type="com.plkpiotr.forum.entities.Topic"*/-->
+    <!--/*@thymesVar id="answers" type="java.util.List"*/-->
 </body>
 </html>

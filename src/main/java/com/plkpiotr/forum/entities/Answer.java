@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -25,8 +26,8 @@ public class Answer {
     @CreatedDate
     private LocalDateTime createdDate;
 
-    @LastModifiedDate
-    private LocalDateTime lastModifiedDate;
+    @Column(length = 1024)
+    private String code;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
@@ -40,7 +41,7 @@ public class Answer {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,12 +69,12 @@ public class Answer {
         this.createdDate = createdDate;
     }
 
-    public LocalDateTime getLastModifiedDate() {
-        return lastModifiedDate;
+    public Optional getCode() {
+        return Optional.ofNullable(code);
     }
 
-    public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public User getUser() {
