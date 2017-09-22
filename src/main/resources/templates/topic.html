@@ -7,7 +7,12 @@
 </head>
 <body>
     <section layout:fragment="content">
-        
+        <div class="container">
+            <div class="row" style="padding-top: 3%;">
+                <blockquote class="flow-text left" th:text="${topic.getTitle()}">Topic's title</blockquote>
+                <blockquote class="flow-text right" th:text="|Number of answers: | + ${answers.size()}">Number of answers</blockquote>
+            </div>
+        </div>
     </section>
 </body>
 </html>

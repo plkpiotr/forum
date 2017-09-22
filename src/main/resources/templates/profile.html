@@ -9,8 +9,11 @@
     <section layout:fragment="content">
         <div class="container">
             <div class="row">
-                <div class="col s12 center" style="padding-top: 3%;">
-                    <span class="flow-text" th:text="Profile">Profile</span>
+                <div class="col s12" style="padding-top: 3%;">
+                    <blockquote class="flow-text left" th:text="${user.getUsername()} + |&apos; s profile|">Profile</blockquote>
+                    <blockquote class="flow-text right" th:text="|Commitment: | + ${numberOfTopics + numberOfAnswers}">
+                        Commitment
+                    </blockquote>
                 </div>
             </div>
             <div class="row">
@@ -42,21 +45,21 @@
                             Activity
                         </li>
                         <li class="collection-item">
-                            <a th:href="@{'/topics/user/' + ${user.getId()}}" style="display: block;">
+                            <a th:href="@{'/topics/user/' + ${user.getId()}}" style="display: block; color: #26a69a">
                                 <span class="badge">
                                     <span th:text="${numberOfTopics}"></span>
                                 </span>Topics:
                             </a>
                         </li>
                         <li class="collection-item">
-                            <a th:href="@{'/answers/' + ${user.getId()}}" style="display: block;">
+                            <a th:href="@{'/answers/' + ${user.getId()}}" style="display: block; color: #26a69a">
                                 <span class="badge">
                                     <span th:text="${numberOfAnswers}"></span>
                                 </span>Answers:
                             </a>
                         </li>
                         <li class="collection-item">
-                            <a th:href="@{'/answers/useful/' + ${user.getId()}}" style="display: block;">
+                            <a th:href="@{'/answers/useful/' + ${user.getId()}}" style="display: block; color: #26a69a">
                                 <span class="badge">
                                     <span th:text="${numberOfHelped}"></span>
                                 </span>Helped:

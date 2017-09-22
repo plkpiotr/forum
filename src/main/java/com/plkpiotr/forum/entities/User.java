@@ -131,9 +131,8 @@ public class User implements UserDetails {
             return "";
     }
 
-    public LocalDate displayParsedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
-        String text = this.createdDate.format(formatter);
-        return LocalDate.parse(text, formatter);
+    public String displayParsedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return this.createdDate.format(formatter);
     }
 }

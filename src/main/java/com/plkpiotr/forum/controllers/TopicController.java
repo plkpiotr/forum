@@ -28,8 +28,8 @@ public class TopicController {
     public String displayTopic(@PathVariable String id,  Model model) {
         Topic topic = topicRepository.findTopicById(Long.valueOf(id));
         List<Answer> answers = answerRepository.findAnswerByTopic_Id(Long.valueOf(id));
-        model.addAttribute("topic");
-        model.addAttribute("answers");
+        model.addAttribute("topic", topic);
+        model.addAttribute("answers", answers);
         return "topic";
     }
 }

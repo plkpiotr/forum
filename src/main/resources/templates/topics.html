@@ -31,8 +31,8 @@
                             <td th:text="${topic.getUser().getUsername()}">Topic's author</td>
                             <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
                             <td>
-                                <a th:href="@{'/topic/' + ${topic.getId()}}" style="display: block;">
-                                    <i class="material-icons" style="color: #26a69a">arrow_forward</i>
+                                <a th:href="@{'/topic/' + ${topic.getId()}}" class="btn btn-floating pulse">
+                                    <i class="material-icons">arrow_forward</i>
                                 </a>
                             </td>
                         </tr>
