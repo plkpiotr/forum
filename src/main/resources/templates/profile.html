@@ -38,23 +38,25 @@
                 </div>
                 <div class="col s12 m6">
                     <ul class="collection">
-                        <li class="collection-item center">Activity</li>
-                        <li>
-                            <a th:href="@{'/topics/user/' + ${user.getId()}}" class="collection-item">
+                        <li class="collection-item center strong">
+                            Activity
+                        </li>
+                        <li class="collection-item">
+                            <a th:href="@{'/topics/user/' + ${user.getId()}}" style="display: block;">
                                 <span class="badge">
                                     <span th:text="${numberOfTopics}"></span>
                                 </span>Topics:
                             </a>
                         </li>
-                        <li>
-                            <a th:href="@{'/answers/' + ${user.getId()}}" class="collection-item">
+                        <li class="collection-item">
+                            <a th:href="@{'/answers/' + ${user.getId()}}" style="display: block;">
                                 <span class="badge">
                                     <span th:text="${numberOfAnswers}"></span>
                                 </span>Answers:
                             </a>
                         </li>
-                        <li>
-                            <a th:href="@{'/answers/useful/' + ${user.getId()}}" class="collection-item">
+                        <li class="collection-item">
+                            <a th:href="@{'/answers/useful/' + ${user.getId()}}" style="display: block;">
                                 <span class="badge">
                                     <span th:text="${numberOfHelped}"></span>
                                 </span>Helped:

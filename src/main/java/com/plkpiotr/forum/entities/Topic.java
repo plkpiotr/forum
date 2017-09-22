@@ -105,15 +105,13 @@ public class Topic {
         this.answers = answers;
     }
 
-    public LocalDate displayParsedCreatedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        String text = this.createdDate.format(formatter);
-        return LocalDate.parse(text, formatter);
+    public String displayParsedCreatedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return this.createdDate.format(formatter);
     }
 
-    public LocalDate displayParsedLastModifiedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        String text = this.createdDate.format(formatter);
-        return LocalDate.parse(text, formatter);
+    public String displayParsedLastModifiedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return this.createdDate.format(formatter);
     }
 }
