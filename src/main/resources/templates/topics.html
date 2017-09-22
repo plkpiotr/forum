@@ -13,38 +13,42 @@
                 <blockquote class="flow-text right" th:text="|Number of topics: | + ${topics.size()}">Number of topics</blockquote>
             </div>
             <div class="row">
-                <table class="striped bordered centered">
-                    <thead>
-                    <tr>
-                        <th>Answers</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Created</th>
-                        <th>Enter</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <th:block th:each="topic : ${topics}">
+                <div class="col s12">
+                    <table class="striped bordered centered">
+                        <thead>
                         <tr>
-                            <td th:text="${answerRepository.countAnswerByTopic_Id(topic.getId())}">Number of answers</td>
-                            <td th:text="${topic.getTitle()}">Topic's title</td>
-                            <td>
-                                <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">
-                                    <div class="chip" th:text="${topic.getUser().getUsername()}">
-                                        Topic's author
-                                    </div>
-                                </a>
-                            </td>
-                            <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
-                            <td>
-                                <a th:href="@{'/topic/' + ${topic.getId()}}" class="btn btn-floating pulse">
-                                    <i class="material-icons">arrow_forward</i>
-                                </a>
-                            </td>
+                            <th>Answers</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Created</th>
+                            <th>Enter</th>
                         </tr>
-                    </th:block>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <th:block th:each="topic : ${topics}">
+                                <tr>
+                                    <td th:text="${answerRepository.countAnswerByTopic_Id(topic.getId())}">
+                                        Number of answers
+                                    </td>
+                                    <td th:text="${topic.getTitle()}">Topic's title</td>
+                                    <td>
+                                        <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">
+                                            <div class="chip" th:text="${topic.getUser().getUsername()}">
+                                                Topic's author
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
+                                    <td>
+                                        <a th:href="@{'/topic/' + ${topic.getId()}}" class="btn btn-floating pulse">
+                                            <i class="material-icons">arrow_forward</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </th:block>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>

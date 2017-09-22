@@ -26,7 +26,7 @@ public class TopicsController {
 
     @GetMapping("topics")
     public String displayAllTopics(Model model) {
-        List<Topic> topics = topicRepository.findAll(new Sort(Sort.Direction.ASC, "lastModifiedDate"));
+        List<Topic> topics = topicRepository.findAll(new Sort(Sort.Direction.DESC, "createdDate"));
         String header = setHeader("all");
         model.addAttribute("topics", topics);
         model.addAttribute("header", header);

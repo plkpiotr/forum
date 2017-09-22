@@ -2,20 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/online">
+<!--/*@thymesVar id="topic" type="com.plkpiotr.forum.entities.Topic"*/-->
 <head>
-    <title>Topic | JF</title>
+    <title th:text="${topic.getTitle()} + '| JF'">Topic's title | JF</title>
 </head>
 <body>
     <section layout:fragment="content">
         <div class="container">
             <div class="row" style="padding-top: 3%;">
-                <blockquote class="flow-text left" th:text="${topic.getTitle()}">Topic's title</blockquote>
-                <blockquote class="flow-text right" th:text="|Number of answers: | + ${answers.size()}">Number of answers</blockquote>
+                <div class="col s12">
+                    <blockquote class="flow-text left" th:text="${topic.getTitle()}">Topic's title</blockquote>
+                </div>
             </div>
-            <code th:text="${topic.getContent()}">Code</code>
+            <div class="row">
+                <div class="col s12">
+                    <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">
+                        <span class="chip left" th:text="${topic.getUser().getUsername()}">
+                            Topic's author
+                        </span>
+                    </a>
+                    <a th:href="@{'/topics/' + ${topic.getCategory()}}">
+                        <span class="chip left" th:text="${topic.getCategory()}">
+                            Topic's author
+                        </span>
+                    </a>
+                    <span class="right" th:text="${topic.displayParsedCreatedDate()}"></span>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col s12" style="text-align: justify" th:text="${topic.getContent()}">Topic's content</p>
+            </div>
+            <div class="row">
+                <pre class="col s12" th:text="${topic.displayCode()}">Source code</pre>
+            </div>
+            <div class="row">
+                <div class="col 12">
+                    <blockquote class="flow-text right" th:text="|Number of answers: | + ${answers.size()}">
+                        Number of answers
+                    </blockquote>
+                </div>
+            </div>
         </div>
     </section>
-    <!--/*@thymesVar id="topic" type="com.plkpiotr.forum.entities.Topic"*/-->
     <!--/*@thymesVar id="getTitle" type="com.plkpiotr.forum.entities.Topic"*/-->
     <!--/*@thymesVar id="answers" type="java.util.List"*/-->
 </body>

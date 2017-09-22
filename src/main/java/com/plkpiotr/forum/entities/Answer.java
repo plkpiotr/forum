@@ -92,4 +92,11 @@ public class Answer {
     public void setTopic(Topic topic) {
         this.topic = topic;
     }
+
+    public String displayCode() {
+        if (Optional.ofNullable(code).isPresent())
+            return Optional.ofNullable(code).get();
+        else
+            return "";
+    }
 }

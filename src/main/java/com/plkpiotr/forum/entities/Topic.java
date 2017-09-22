@@ -107,7 +107,14 @@ public class Topic {
     }
 
     public String displayParsedCreatedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd.MM.yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm - dd.MM.yyyy");
         return this.createdDate.format(formatter);
+    }
+
+    public String displayCode() {
+        if (Optional.ofNullable(code).isPresent())
+            return Optional.ofNullable(code).get();
+        else
+            return "";
     }
 }
