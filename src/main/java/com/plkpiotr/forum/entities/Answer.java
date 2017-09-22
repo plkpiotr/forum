@@ -105,4 +105,8 @@ public class Answer {
         else
             return "";
     }
+
+    public String displayBeginning() {
+        return (this.content.length() < 32) ? this.content.concat("...") : this.content.substring(0, 30).concat("...");
+    }
 }

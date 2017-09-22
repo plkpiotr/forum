@@ -6,10 +6,39 @@
     <title>Answers | JF</title>
 </head>
 <body>
-<section layout:fragment="content">
-    <p th:each="answer : ${answers}"
-       th:text="${answer.getContent()}">Answer's content
-    </p>
-</section>
+    <section layout:fragment="content">
+        <div class="container" style="padding-bottom: 5%;">
+            <div class="row" style="padding-top: 2%;">
+                <div class="col s12">
+                    <blockquote class="flow-text left" th:text="|Answers:|">Header</blockquote>
+                </div>
+            </div>
+            <table class="striped bordered centered">
+                <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Content</th>
+                    <th>Enter</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="answer : ${answers}">
+                    <tr>
+                        <td th:text="${answer.getTopic().getTitle()}">
+                            Topic's title
+                        </td>
+                        <td th:text="${answer.displayBeginning()}">Topic's title</td>
+                        <td>
+                            <a th:href="@{'/topic/' + ${answer.getTopic().getId()}}" class="btn btn-floating pulse">
+                                <i class="material-icons">arrow_forward</i>
+                            </a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </section>
+<!--/*@thymesVar id="answers" type="java.util.List"*/-->
 </body>
 </html>

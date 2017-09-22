@@ -37,14 +37,14 @@
                       th:text="${topic.displayCode()}">Source code</code>
             </div>
             <div class="row">
-                <div class="col 12">
-                    <blockquote class="flow-text right" th:text="|Answers: | + ${answers.size()}">
+                <div class="col s12">
+                    <blockquote class="flow-text left" th:text="|Answers: | + ${answers.size()}">
                         Number of answers
                     </blockquote>
                 </div>
             </div>
             <div class="row">
-                <div class="col 12" th:each="answer : ${answers}">
+                <div class="col s12" th:each="answer : ${answers}">
                     <a th:href="@{'/profile/' + ${answer.getUser().getId()}}">
                         <span class="chip left" th:text="${answer.getUser().getUsername()}">
                             Answer's author
