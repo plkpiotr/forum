@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Entity
@@ -91,6 +92,11 @@ public class Answer {
 
     public void setTopic(Topic topic) {
         this.topic = topic;
+    }
+
+    public String displayParsedCreatedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm - dd.MM.yyyy");
+        return this.createdDate.format(formatter);
     }
 
     public String displayCode() {
