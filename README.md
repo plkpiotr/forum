@@ -16,7 +16,7 @@ Internet forum powered by Spring Framework [ongoing]
       - configuration:
         - AdditionalLoginConfiguration.java
         - SecurityConfiguration.java
-      - controller:
+      - controllers:
         - AnswersController.java
         - IndexController.java
         - LoginController.java
@@ -24,11 +24,11 @@ Internet forum powered by Spring Framework [ongoing]
         - RegisterController.java
         - TopicController.java
         - TopicsController.java
-      - entity:
+      - entities:
         - Answer.java
         - Topic.java
         - User.java
-      - repository:
+      - repositories:
         - AnswerRepository.java
         - TopicRepository.java
         - UserRepository.java

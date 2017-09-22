@@ -16,19 +16,21 @@
                 <table class="highlight bordered">
                     <thead>
                         <tr>
+                            <!--<th>Answers</th>-->
                             <th>Title</th>
                             <th>Author</th>
-                            <th>Created</th>
                             <th>Modified</th>
+                            <th>Created</th>
                         </tr>
                     </thead>
                     <th:block th:each="topic : ${topics}">
                         <tbody>
                             <tr>
+                                <!--<td th:text="${answerRepository.countAnswerByTopic(topic.getId())}">Topic's title</td>-->
                                 <td th:text="${topic.getTitle()}">Topic's title</td>
-                                <td th:text="${topic.get()}">Topic's title</td>
-                                <td th:text="${topic.getTitle()}">Topic's title</td>
-                                <td th:text="${topic.getTitle()}">Topic's title</td>
+                                <td th:text="${topic.getUser().getUsername()}">Topic's author</td>
+                                <td th:text="${topic.displayParsedLastModifiedDate()}">Topic's last modified date</td>
+                                <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
                             </tr>
                         </tbody>
                     </th:block>

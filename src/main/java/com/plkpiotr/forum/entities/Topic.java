@@ -5,7 +5,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -17,10 +19,10 @@ public class Topic {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false, length = 32)
     private String title;
 
-    @Column(nullable = false, length = 256)
+    @Column(nullable = false, length = 1024)
     private String content;
 
     @Column(nullable = false, length = 16)
@@ -101,5 +103,17 @@ public class Topic {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public LocalDate displayParsedCreatedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        String text = this.createdDate.format(formatter);
+        return LocalDate.parse(text, formatter);
+    }
+
+    public LocalDate displayParsedLastModifiedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        String text = this.createdDate.format(formatter);
+        return LocalDate.parse(text, formatter);
     }
 }
