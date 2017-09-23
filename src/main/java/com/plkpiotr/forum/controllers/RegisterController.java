@@ -3,10 +3,12 @@ package com.plkpiotr.forum.controllers;
 import com.plkpiotr.forum.entities.User;
 import com.plkpiotr.forum.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,10 +16,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegisterController {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public RegisterController(UserRepository userRepository) {
+    public RegisterController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @GetMapping("register")
@@ -32,6 +41,7 @@ public class RegisterController {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
+        user.setPassword(passwordEncoder.encode(password));
         user.setIntroduction(introduction);
         userRepository.save(user);
         return "register";
