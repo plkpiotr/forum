@@ -7,8 +7,8 @@
 </head>
 <body>
     <section layout:fragment="content">
-        <div class="container">
-            <div class="row" style="padding-top: 3%;">
+        <div class="container" style="padding: 3% 0 2%;">
+            <div class="row">
                 <blockquote class="flow-text left" th:text="${header}">Header</blockquote>
                 <blockquote class="flow-text right" th:text="|Topics: | + ${topics.size()}">Number of topics</blockquote>
             </div>
