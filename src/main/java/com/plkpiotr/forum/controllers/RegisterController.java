@@ -38,22 +38,20 @@ public class RegisterController {
     }
 
     @PostMapping("register")
-    public String registerUser(@RequestParam("username") String username,
-                               @RequestParam("password") String password,
-                               @RequestParam("introduction") String introduction) {
+    public String registerUser(@RequestParam("username") String username, @RequestParam("password") String password,
+                               @RequestParam("introduction") String introduction, Model model) {
         User user = new User();
-
         // I did it on purpose to find out about Optionals:
         if (Objects.equals(introduction, ""))
             user.setIntroduction(null);
         else
             user.setIntroduction(introduction);
-
         user.setUsername(username);
         user.setPassword(password);
         user.setPassword(passwordEncoder.encode(password));
         user.setCreatedDate(LocalDateTime.now());
         userRepository.save(user);
+        model.addAttribute("message", "User was added.");
         return "register";
     }
 }

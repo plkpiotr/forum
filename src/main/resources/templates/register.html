@@ -10,18 +10,19 @@
     <section layout:fragment="content" class="container" style="padding-top: 3%;">
         <h3 class="center">Register</h3>
         <h5 class="center">Sign up to the Java Forum</h5>
+        <p th:text="${message}">Information about succes of registration</p>
         <form th:action="@{/register}" method="post">
             <div class="row">
                 <div class="col s12">
                     <label> Nick:
-                        <input type="text" name="username" maxlength="10" required="required"/>
+                        <input type="text" name="username" minlength="3" maxlength="10" required="required"/>
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12">
                     <label> Password:
-                        <input type="password" name="password" maxlength="10" required="required"/>
+                        <input type="password" name="password" minlength="6" maxlength="10" required="required"/>
                     </label>
                 </div>
             </div>
