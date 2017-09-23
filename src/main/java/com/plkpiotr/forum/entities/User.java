@@ -42,7 +42,7 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Answer> answers;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

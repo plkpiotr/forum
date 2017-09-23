@@ -6,28 +6,33 @@
     <title>Login | JF</title>
 </head>
 <body>
-    <section layout:fragment="content">
-        <div class="container">
-            <h2 class="center">Login</h2>
-            <h4 class="center">Get into the Java Forum</h4>
-            <p class="center flow-text" th:if="${param.error}">Invalid username or password</p>
-            <form th:action="@{/login}" method="post">
-                <div class="row">
-                    <label> Nick: <input type="text" name="username" maxlength="10" required="required"/>
+    <section layout:fragment="content" class="container" style="padding-top: 3%">
+        <h3 class="center">Login</h3>
+        <h5 class="center">Get into the Java Forum</h5>
+        <p class="center flow-text" th:if="${param.error}">Invalid username or password</p>
+        <form th:action="@{/login}" method="post">
+            <div class="row">
+                <div class="col s12">
+                    <label> Nick:
+                        <input type="text" name="username" maxlength="10" required="required"/>
                     </label>
                 </div>
-                <div class="row">
-                    <label> Password: <input type="password" name="password" maxlength="10" required="required"/>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label> Password:
+                        <input type="password" name="password" maxlength="10" required="required"/>
                     </label>
                 </div>
-                <div class="row">
-                    <div class="col s12 center">
-                        <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Get into</button>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center">
+                    <button class="btn waves-effect waves-light btn-large" type="submit" name="login">
+                        Get into</button>
                 </div>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            </form>
-        </div>
+            </div>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
     </section>
 </body>
 </html>

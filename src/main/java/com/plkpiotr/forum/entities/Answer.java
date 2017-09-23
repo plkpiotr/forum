@@ -38,7 +38,7 @@ public class Answer {
     @JoinColumn(name = "id_topic")
     private Topic topic;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

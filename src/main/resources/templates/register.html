@@ -3,11 +3,43 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/offline">
 <head>
+    <meta charset="utf-8"/>
     <title>Register | JF</title>
 </head>
 <body>
-    <section layout:fragment="content">
-        
+    <section layout:fragment="content" class="container" style="padding-top: 3%;">
+        <h3 class="center">Register</h3>
+        <h5 class="center">Sign up to the Java Forum</h5>
+        <form th:action="@{/register}" method="post">
+            <div class="row">
+                <div class="col s12">
+                    <label> Nick:
+                        <input type="text" name="username" maxlength="10" required="required"/>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label> Password:
+                        <input type="password" name="password" maxlength="10" required="required"/>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label> Introduction:
+                        <input type="text" name="introduction" maxlength="16" placeholder="[optional]"/>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center">
+                    <button class="btn waves-effect waves-light btn-large" type="submit" name="register">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </form>
     </section>
 </body>
 </html>

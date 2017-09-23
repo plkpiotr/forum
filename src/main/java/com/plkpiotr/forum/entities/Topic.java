@@ -42,7 +42,7 @@ public class Topic {
     @OneToMany(mappedBy = "topic")
     private List<Answer> answers;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

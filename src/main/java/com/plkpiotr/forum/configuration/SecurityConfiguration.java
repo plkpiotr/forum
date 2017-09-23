@@ -24,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
-                .antMatchers("/", "/login", "register").permitAll()
+                .antMatchers("/", "/login", "/register").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/profile")
@@ -33,6 +33,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.userDetailsService(username -> userRepository.getUserByUsername(username));
+        authenticationManagerBuilder.userDetailsService(userRepository::getUserByUsername);
     }
 }
