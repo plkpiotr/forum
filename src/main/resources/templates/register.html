@@ -10,7 +10,7 @@
     <section layout:fragment="content" class="container" style="padding-top: 3%;">
         <h3 class="center">Register</h3>
         <h5 class="center">Sign up to the Java Forum</h5>
-        <p th:text="${message}">Information about succes of registration</p>
+        <p th:text="${message}" class="center">Information about succes of registration</p>
         <form th:action="@{/register}" method="post">
             <div class="row">
                 <div class="col s12">

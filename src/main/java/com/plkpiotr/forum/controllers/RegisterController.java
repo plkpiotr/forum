@@ -11,7 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -38,8 +41,8 @@ public class RegisterController {
     }
 
     @PostMapping("register")
-    public String registerUser(@RequestParam("username") String username, @RequestParam("password") String password,
-                               @RequestParam("introduction") String introduction, Model model) {
+    public View registerUser(@RequestParam("username") String username, @RequestParam("password") String password,
+                             @RequestParam("introduction") String introduction, HttpServletRequest request) {
         User user = new User();
         // I did it on purpose to find out about Optionals:
         if (Objects.equals(introduction, ""))
@@ -51,7 +54,7 @@ public class RegisterController {
         user.setPassword(passwordEncoder.encode(password));
         user.setCreatedDate(LocalDateTime.now());
         userRepository.save(user);
-        model.addAttribute("message", "User was added.");
-        return "register";
+        String contextPath = request.getContextPath();
+        return new RedirectView(contextPath + "/register");
     }
 }
