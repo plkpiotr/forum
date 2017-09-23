@@ -1,5 +1,6 @@
 package com.plkpiotr.forum.controllers;
 
+import com.plkpiotr.forum.entities.Topic;
 import com.plkpiotr.forum.entities.User;
 import com.plkpiotr.forum.repositories.AnswerRepository;
 import com.plkpiotr.forum.repositories.TopicRepository;
@@ -11,6 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Controller
 public class ProfileController {
@@ -58,5 +67,25 @@ public class ProfileController {
         model.addAttribute("numberOfHelped", numberOfHelped);
 
         return "profile";
+    }
+
+    @PostMapping("profile")
+    public View addTask(@RequestParam("category") String category, @RequestParam("title") String title,
+                        @RequestParam("content") String content, @RequestParam("code") String code,
+                        @RequestParam("id_user") String id_user, HttpServletRequest request) {
+        Topic topic = new Topic();
+        topic.setCategory(category);
+        // I know that it can be blank field, but I did it on purpose to find out about Optionals:
+        if (Objects.equals(code, ""))
+            topic.setCode(code);
+        else
+            topic.setCode(code);
+        topic.setContent(content);
+        topic.setTitle(title);
+        topic.setCreatedDate(LocalDateTime.now());
+        topic.setUser(userRepository.getUserById(Long.parseLong(id_user)));
+        topicRepository.save(topic);
+        String contextPath = request.getContextPath();
+        return new RedirectView(contextPath + "/profile");
     }
 }

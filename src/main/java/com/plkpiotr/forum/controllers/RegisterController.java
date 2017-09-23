@@ -44,7 +44,7 @@ public class RegisterController {
     public View registerUser(@RequestParam("username") String username, @RequestParam("password") String password,
                              @RequestParam("introduction") String introduction, HttpServletRequest request) {
         User user = new User();
-        // I did it on purpose to find out about Optionals:
+        // I know that it can be blank field, but I did it on purpose to find out about Optionals:
         if (Objects.equals(introduction, ""))
             user.setIntroduction(null);
         else

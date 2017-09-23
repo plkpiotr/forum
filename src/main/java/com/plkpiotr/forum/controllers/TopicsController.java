@@ -61,7 +61,7 @@ public class TopicsController {
             case "ee":
                 return "Java Enterprise Edition";
             case "jpa":
-                return "Java Persistence API & Hibernate";
+                return "Java Persistence API and Hibernate";
             case "spring":
                 return "Spring Framework";
             case "web":

@@ -51,10 +51,10 @@
                             Answer's author
                         </span>
                     </a>
-                    <span class="chip left" th:if="${answer.isUseful()}" th:text="|Useful|">Useful</span>
-                    <span class="chip left" th:if="${!answer.isUseful()}" th:text="|Useful|" style="background-color:#ee6e73;">
+                    <span class="chip left" th:if="${answer.isUseful()}" th:text="|Useful|" style="background-color:#ee6e73;">
                         Useful
                     </span>
+                    <span class="chip left" th:if="${!answer.isUseful()}" th:text="|Useful|">Useful</span>
                     <span class="right" th:text="${answer.displayParsedCreatedDate()}"></span>
                     <div class="row">
                         <p class="col s12" style="text-align: justify" th:text="${answer.getContent()}">
@@ -76,14 +76,14 @@
             <form th:action="@{/topic}" method="post">
                 <div class="row">
                     <div class="col s12">
-                        <label> Content:
+                        <label>Content:
                             <input type="text" name="content" minlength="5" maxlength="256" required="required"/>
                         </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <label> Code:
+                        <label>Code:
                             <textarea name="code" class="materialize-textarea" placeholder="[optional]"
                             style="font-family: monospace, monospace;"></textarea>
                         </label>

@@ -17,7 +17,7 @@ public class Answer {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, length = 256)
+    @Column(nullable = false, length = 1024)
     private String content;
 
     @Column(nullable = false)

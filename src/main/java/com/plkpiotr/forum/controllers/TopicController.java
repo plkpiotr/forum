@@ -20,6 +20,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class TopicController {
@@ -56,7 +57,11 @@ public class TopicController {
                           HttpServletRequest request) {
         Answer answer = new Answer();
         answer.setContent(content);
-        answer.setCode(code);
+        // I know that it can be blank field, but I did it on purpose to find out about Optionals:
+        if (Objects.equals(code, ""))
+            answer.setCode(code);
+        else
+            answer.setCode(code);
         answer.setCreatedDate(LocalDateTime.now());
         answer.setUseful(false);
         answer.setTopic(topicRepository.findTopicById(Long.valueOf(id_topic)));
