@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
+import java.util.Objects;
+
 @Controller
 public class RegisterController {
 
@@ -39,10 +42,17 @@ public class RegisterController {
                                @RequestParam("password") String password,
                                @RequestParam("introduction") String introduction) {
         User user = new User();
+
+        // I did it on purpose to find out about Optionals:
+        if (Objects.equals(introduction, ""))
+            user.setIntroduction(null);
+        else
+            user.setIntroduction(introduction);
+
         user.setUsername(username);
         user.setPassword(password);
         user.setPassword(passwordEncoder.encode(password));
-        user.setIntroduction(introduction);
+        user.setCreatedDate(LocalDateTime.now());
         userRepository.save(user);
         return "register";
     }
