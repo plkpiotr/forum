@@ -51,6 +51,21 @@ public class TopicController {
         return "topic";
     }
 
+    @PostMapping("topic/{id}")
+    public View updateAnswer(@RequestParam String id_topic, @RequestParam String action, @RequestParam String id_answer,
+                             @RequestParam(required = false) String state, HttpServletRequest request) {
+        switch (action) {
+            case "useful" :
+                answerRepository.setUsefulForAnswer(!Boolean.valueOf(state), Long.valueOf(id_answer));
+                break;
+            case "delete" :
+                answerRepository.deleteAnswerById(Long.valueOf(id_answer));
+                break;
+        }
+        String contextPath = request.getContextPath();
+        return new RedirectView(contextPath + "/topic/" + id_topic);
+    }
+
     @PostMapping("topic")
     public View addAnswer(@RequestParam("content") String content, @RequestParam("code") String code,
                           @RequestParam("id_topic") String id_topic, @RequestParam("id_user") String id_user,

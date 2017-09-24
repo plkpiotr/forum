@@ -27,7 +27,7 @@
                         <tbody>
                             <th:block th:each="topic : ${topics}">
                                 <tr>
-                                    <td th:text="${answerRepository.countAnswerByTopic_Id(topic.getId())}">
+                                    <td th:text="${answerRepository.countAnswersByTopic_Id(topic.getId())}">
                                         Number of answers
                                     </td>
                                     <td th:text="${topic.getTitle()}">Topic's title</td>
@@ -55,6 +55,6 @@
     <!--/*@thymesVar id="header" type="java.lang.String"*/-->
     <!--/*@thymesVar id="topics" type="java.util.List"*/-->
     <!--/*@thymesVar id="answerRepository" type="com.plkpiotr.forum.repositories.AnswerRepository"*/-->
-    <!--/*@thymesVar id="countAnswerByTopic_Id" type="com.plkpiotr.forum.repositories.AnswerRepository"*/-->
+    <!--/*@thymesVar id="countAnswersByTopic_Id" type="com.plkpiotr.forum.repositories.AnswerRepository"*/-->
 </body>
 </html>
