@@ -6,14 +6,14 @@
     <title>Answers | JF</title>
 </head>
 <body>
-    <section layout:fragment="content">
-        <div class="container" style="padding: 3% 0 2%;">
-            <div class="row">
+    <main layout:fragment="content">
+        <article class="container" style="padding: 3% 0 2%;">
+            <header class="row">
                 <div class="col s12">
                     <blockquote class="flow-text left" th:text="|Answers:|">Header</blockquote>
                 </div>
-            </div>
-            <div class="row">
+            </header>
+            <section class="row">
                 <div class="col s12">
                     <table class="striped bordered centered" th:if="${answers.size() != 0}">
                         <thead>
@@ -40,16 +40,16 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="row">
+            </section>
+            <section class="row">
                 <div class="col s12">
                     <div th:if="${answers.size() == 0}">
                         <p class="flow-text center">No answers</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        </article>
+    </main>
 <!--/*@thymesVar id="answers" type="java.util.List"*/-->
 </body>
 </html>

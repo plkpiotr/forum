@@ -6,13 +6,13 @@
     <title>Topics | JF</title>
 </head>
 <body>
-    <section layout:fragment="content">
-        <div class="container" style="padding: 3% 0 2%;">
-            <div class="row">
+    <main layout:fragment="content">
+        <article class="container" style="padding: 3% 0 2%;">
+            <header class="row">
                 <blockquote class="flow-text left" th:text="${header}">Header</blockquote>
                 <blockquote class="flow-text right" th:text="|Topics: | + ${topics.size()}">Number of topics</blockquote>
-            </div>
-            <div class="row">
+            </header>
+            <section class="row">
                 <div class="col s12">
                     <table class="striped bordered centered" th:if="${topics.size() != 0}">
                         <thead>
@@ -49,9 +49,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        </article>
+    </main>
     <!--/*@thymesVar id="header" type="java.lang.String"*/-->
     <!--/*@thymesVar id="topics" type="java.util.List"*/-->
     <!--/*@thymesVar id="answerRepository" type="com.plkpiotr.forum.repositories.AnswerRepository"*/-->
