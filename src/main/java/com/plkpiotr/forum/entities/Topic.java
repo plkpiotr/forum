@@ -27,7 +27,6 @@ public class Topic {
     @Column(nullable = false, length = 16)
     private String category;
 
-    @CreatedDate
     private LocalDateTime createdDate;
 
     @Column(length = 1024)

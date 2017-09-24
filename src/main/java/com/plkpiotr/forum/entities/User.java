@@ -32,7 +32,6 @@ public class User implements UserDetails {
     @Column(length = 16)
     private String introduction;
 
-    @CreatedDate
     private LocalDateTime createdDate;
 
     @OneToMany(mappedBy = "user")

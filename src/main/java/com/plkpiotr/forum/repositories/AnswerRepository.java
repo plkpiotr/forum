@@ -23,8 +23,6 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
     Long countAnswersByUser_IdAndUseful(Long user_id, boolean useful);
     Long countAnswersByTopic_Id(Long topic_id);
 
-    Answer findAnswerById(Long id);
-
     List<Answer> findAnswerByUser_IdOrderByCreatedDateDesc(Long id);
     List<Answer> findAnswerByUser_IdAndUsefulOrderByCreatedDateDesc(Long user_id, boolean useful);
     List<Answer> findAnswerByTopic_Id(Long topic_id);

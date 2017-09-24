@@ -34,7 +34,8 @@ Internet forum powered by Spring Framework [ongoing]
         - UserRepository.java
       - ForumApplication.java [main class]
     - resources:
-      - static [TODO]
+      - static/js:
+        - backToTheSamePlace.js
       - templates:
         - layout:
           - offline.html

@@ -23,14 +23,15 @@
                     </a>
                     <a th:href="@{'/topics/' + ${topic.getCategory()}}">
                         <span class="chip left" th:text="${topic.getCategory()}" style="background-color: #ee6e73;">
-                            Topic's author
+                            Topic's category
                         </span>
                     </a>
                     <span class="right" th:text="${topic.displayParsedCreatedDate()}"></span>
                 </div>
             </section>
             <section class="row">
-                <p class="col s12" style="text-align: justify" th:text="${topic.getContent()}">Topic's content</p>
+                <p class="col s12" style="text-align: justify; display:block; white-space:pre-wrap"
+                   th:text="${topic.getContent()}">Topic's content</p>
             </section>
             <section class="row">
                 <code style="display:block; white-space:pre-wrap" class="col s12"
@@ -79,8 +80,9 @@
                         </form>
                     </span>
                     <div class="row">
-                        <p class="col s12" style="text-align: justify" th:text="${answer.getContent()}">
-                            Answer'scontent
+                        <p class="col s12" style="text-align: justify; display:block; white-space:pre-wrap"
+                           th:text="${answer.getContent()}">
+                            Answer's content
                         </p>
                     </div>
                     <div class="row">
@@ -100,7 +102,8 @@
                     <div class="row">
                         <div class="col s12">
                             <label>Content:
-                                <input type="text" name="content" minlength="5" maxlength="1024" data-length="1024" required="required"/>
+                                <textarea name="content" class="materialize-textarea" minlength="5" maxlength="1024"
+                                          data-length="1024" required="required"></textarea>
                             </label>
                         </div>
                     </div>

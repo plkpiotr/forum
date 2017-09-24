@@ -23,7 +23,6 @@ public class Answer {
     @Column(nullable = false)
     private boolean useful;
 
-    @CreatedDate
     private LocalDateTime createdDate;
 
     @Column(length = 1024)
