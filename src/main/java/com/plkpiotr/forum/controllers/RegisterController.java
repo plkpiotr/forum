@@ -43,18 +43,21 @@ public class RegisterController {
     @PostMapping("register")
     public View registerUser(@RequestParam("username") String username, @RequestParam("password") String password,
                              @RequestParam("introduction") String introduction, HttpServletRequest request) {
-        User user = new User();
-        // I know that it can be blank field, but I did it on purpose to find out about Optionals:
-        if (Objects.equals(introduction, ""))
-            user.setIntroduction(null);
-        else
-            user.setIntroduction(introduction);
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setPassword(passwordEncoder.encode(password));
-        user.setCreatedDate(LocalDateTime.now());
-        userRepository.save(user);
         String contextPath = request.getContextPath();
-        return new RedirectView(contextPath + "/register");
+        User user = new User();
+        if (userRepository.getUserByUsername(username) == null) {
+            user.setUsername(username);
+            // I know that it can be blank field, but I did it on purpose to find out about Optionals:
+            if (Objects.equals(introduction, ""))
+                user.setIntroduction(null);
+            else
+                user.setIntroduction(introduction);
+            user.setPassword(password);
+            user.setPassword(passwordEncoder.encode(password));
+            user.setCreatedDate(LocalDateTime.now());
+            userRepository.save(user);
+            return new RedirectView(contextPath + "/login");
+        } else
+            return new RedirectView(contextPath + "/register");
     }
 }
