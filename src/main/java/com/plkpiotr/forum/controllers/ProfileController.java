@@ -41,12 +41,14 @@ public class ProfileController {
         String username = ((UserDetails)principal).getUsername();
 
         User user = userRepository.getUserByUsername(username);
+        Long points = userRepository.getPoints(user.getId());
 
         Long numberOfTopics = topicRepository.countTopicsByUser_Id(user.getId());
         Long numberOfAnswers = answerRepository.countAnswersByUser_Id(user.getId());
         Long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(user.getId(), true);
 
         model.addAttribute("user", user);
+        model.addAttribute("points", points);
         model.addAttribute("numberOfTopics", numberOfTopics);
         model.addAttribute("numberOfAnswers", numberOfAnswers);
         model.addAttribute("numberOfHelped", numberOfHelped);
@@ -56,12 +58,14 @@ public class ProfileController {
     @GetMapping("profile/{id}")
     public String displayProfileById(@PathVariable Long id, Model model) {
         User user = userRepository.getUserById(id);
+        Long points = userRepository.getPoints(user.getId());
 
         Long numberOfTopics = topicRepository.countTopicsByUser_Id(id);
         Long numberOfAnswers = answerRepository.countAnswersByUser_Id(id);
         Long numberOfHelped = answerRepository.countAnswersByUser_IdAndUseful(id, true);
 
         model.addAttribute("user", user);
+        model.addAttribute("points", points);
         model.addAttribute("numberOfTopics", numberOfTopics);
         model.addAttribute("numberOfAnswers", numberOfAnswers);
         model.addAttribute("numberOfHelped", numberOfHelped);
