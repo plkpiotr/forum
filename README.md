@@ -1,6 +1,6 @@
 # Forum
 ## Description
-Internet forum [in this case about programming language Java] powered by Spring Framework.
+Internet forum [in this case about programming language Java] powered by Spring Framework and MySQL. This web application enables inter alia: adding topics and answers, as well as browsing, editing or deleting some of them.
 ## Technologies
 - Java:
   - Spring Framework:
@@ -8,8 +8,8 @@ Internet forum [in this case about programming language Java] powered by Spring 
       - application-level on the basis on design pattern: model-view-controller
       - using methods "get" and "post" with parameterising URLs which is typical of REST API
     - Spring Data:
+      - using JPQL and ready-made methods from `JpaRepository` to creating, reading, updating and deleting data
       - implementation of native queries
-      - using JPQL and ready methods from repository to creating, reading, updating and deleting data
     - Spring Security:
       - own login form with authentication of users on the basis of database
       - restricting access to some pages for offline users
@@ -57,8 +57,6 @@ Internet forum [in this case about programming language Java] powered by Spring 
         - UserRepository.java
       - ForumApplication.java [main class]
     - resources:
-      - static/js:
-        - backToTheSamePlace.js
       - templates:
         - layout:
           - offline.html
@@ -75,6 +73,7 @@ Internet forum [in this case about programming language Java] powered by Spring 
     - ForumApplicationTests.java [TODO]
 - build.gradle
 ## Comments
-[TODO]
+The content of questions and answers in the screenshots comes from [Stack Overflow](https://stackoverflow.com/).
+I was faced with those problems during creating application.
 ## License
 MIT
