@@ -1,8 +1,31 @@
 # Forum
 ## Description
-Internet forum powered by Spring Framework [ongoing]
+Internet forum [in this case about programming language Java] powered by Spring Framework.
 ## Technologies
-- [TODO]
+- Java:
+  - Spring Framework:
+    - Spring MVC:
+      - application-level on the basis on design pattern: model-view-controller
+      - using methods "get" and "post" with parameterising URLs which is typical of REST API
+    - Spring Data:
+      - implementation of native queries
+      - using JPQL and ready methods from repository to creating, reading, updating and deleting data
+    - Spring Security:
+      - own login form with authentication of users on the basis of database
+      - restricting access to some pages for offline users
+      - encoding passwords
+    - Spring Boot:
+      - automatic configuration and launching application 
+  - JPA & Hibernate:
+    - specifying relations between entities in database and parameters of columns in tables
+  - Java 8 SE:
+    - Optionals
+- HTML:
+  - Thymeleaf
+  - Data validation in login form and registration form
+  - Semantic elements from HTML5
+- CSS:
+  - Materialize
 ## Features
 - [TODO]
 ## Software tools
