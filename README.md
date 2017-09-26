@@ -23,8 +23,8 @@ Internet forum [in this case about programming language Java] powered by Spring 
     - Optionals
 - HTML:
   - Thymeleaf
-  - Data validation in login form and registration form
-  - Semantic elements from HTML5
+  - data validation in login form and registration form
+  - semantic elements from HTML5
 - CSS:
   - Materialize
 ## Features
