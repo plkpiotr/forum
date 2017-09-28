@@ -20,7 +20,7 @@ Internet forum [in this case about programming language Java] powered by Spring 
   - JPA & Hibernate:
     - specifying relations between entities in database and parameters of columns in tables
   - Java 8 SE:
-    - Optionals
+    - Optionals, LocalDateTime
 - HTML:
   - Thymeleaf
   - data validation in login form and registration form
