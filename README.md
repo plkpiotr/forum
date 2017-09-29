@@ -31,7 +31,7 @@ Internet forum [in this case about programming language Java] powered by Spring 
 - Possibility joining to the Java Forum and adding personal data to database: ![register](https://user-images.githubusercontent.com/21959354/30806138-cf444d24-a1f4-11e7-926f-aecda2da8696.png)
 - Summary of activity on forum expressed in number of topics or answers and hyperlinks to them: ![profile](https://user-images.githubusercontent.com/21959354/30806136-cf2b1e30-a1f4-11e7-889d-e06ccdabbb0f.png)
 - Review topics with redirecting to each of them and to each of their authors: ![topics](https://user-images.githubusercontent.com/21959354/30806140-cf53bb92-a1f4-11e7-92f2-518c2765ed9d.png)
-- Browsing a topic with the possibility of adding/deleting new answer, and setting answer as useful: ![topic](https://user-images.githubusercontent.com/21959354/30806139-cf53cb46-a1f4-11e7-8c21-e16221205e6a.png)
+- Browsing a topic with the possibility of adding/deleting answer, and setting it as useful: ![topic](https://user-images.githubusercontent.com/21959354/30806139-cf53cb46-a1f4-11e7-8c21-e16221205e6a.png)
 ## Software tools
 - IntelliJ IDEA 2017.2.4
 - Gradle 3.5.1
