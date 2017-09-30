@@ -20,8 +20,6 @@ public class AnswersController {
         this.answerRepository = answerRepository;
     }
 
-    // TODO: add admin panel for all answers!
-
     @GetMapping("answers/{id}")
     public String displayAnswersByUser(@PathVariable String id, Model model) {
         List<Answer> answers = answerRepository.findAnswerByUser_IdOrderByCreatedDateDesc(Long.parseLong(id));
