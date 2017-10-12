@@ -71,15 +71,17 @@ public class TopicController {
                           HttpServletRequest request) {
         Answer answer = new Answer();
         answer.setContent(content);
+
         // I know that it can be blank field, but I did it on purpose to find out about Optionals:
         if (Objects.equals(code, ""))
-            answer.setCode(code);
+            answer.setCode(null);
         else
             answer.setCode(code);
         answer.setCreatedDate(LocalDateTime.now());
         answer.setUseful(false);
         answer.setTopic(topicRepository.findTopicById(Long.valueOf(id_topic)));
         answer.setUser(userRepository.getUserById(Long.parseLong(id_user)));
+
         answerRepository.save(answer);
         String contextPath = request.getContextPath();
         return new RedirectView(contextPath + "/topic/" + id_topic);

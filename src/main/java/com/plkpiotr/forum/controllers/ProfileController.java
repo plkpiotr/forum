@@ -78,15 +78,18 @@ public class ProfileController {
                         @RequestParam("id_user") String id_user, HttpServletRequest request) {
         Topic topic = new Topic();
         topic.setCategory(category);
+
         // I know that it can be blank field, but I did it on purpose to find out about Optionals:
         if (Objects.equals(code, ""))
-            topic.setCode(code);
+            topic.setCode(null);
         else
             topic.setCode(code);
+
         topic.setContent(content);
         topic.setTitle(title);
         topic.setCreatedDate(LocalDateTime.now());
         topic.setUser(userRepository.getUserById(Long.parseLong(id_user)));
+
         topicRepository.save(topic);
         String contextPath = request.getContextPath();
         return new RedirectView(contextPath + "/profile");
