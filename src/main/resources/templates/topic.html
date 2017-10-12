@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layout/online">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/online">
 <!--/*@thymesVar id="topic" type="com.plkpiotr.forum.entities.Topic"*/-->
 <head>
     <title th:text="${topic.getTitle()} + '| JF'">Topic's title | JF</title>
