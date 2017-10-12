@@ -25,9 +25,7 @@
                         <tbody>
                             <th:block th:each="topic : ${topics}">
                                 <tr>
-                                    <td th:text="${answerRepository.countAnswersByTopic_Id(topic.getId())}">
-                                        Number of answers
-                                    </td>
+                                    <td th:text="${answerRepository.countAnswersByTopic_Id(topic.getId())}">Number of answers</td>
                                     <td th:text="${topic.getTitle()}">Topic's title</td>
                                     <td>
                                         <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">

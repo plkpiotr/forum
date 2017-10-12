@@ -1,12 +1,9 @@
 package com.plkpiotr.forum.entities;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import java.util.Optional;
 
 @Entity
