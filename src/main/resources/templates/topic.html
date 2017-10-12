@@ -15,14 +15,10 @@
             <section class="row">
                 <div class="col s12">
                     <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">
-                        <span class="chip left" th:text="${topic.getUser().getUsername()}">
-                            Topic's author
-                        </span>
+                        <span class="chip left" th:text="${topic.getUser().getUsername()}">Topic's author</span>
                     </a>
                     <a th:href="@{'/topics/' + ${topic.getCategory()}}">
-                        <span class="chip left" th:text="${topic.getCategory()}" style="background-color: #ee6e73;">
-                            Topic's category
-                        </span>
+                        <span class="chip left" th:text="${topic.getCategory()}" style="background-color: #ee6e73;">Category</span>
                     </a>
                     <span class="right" th:text="${topic.displayParsedCreatedDate()}"></span>
                 </div>
@@ -32,14 +28,11 @@
                    th:text="${topic.getContent()}">Topic's content</p>
             </section>
             <section class="row">
-                <code style="display:block; white-space:pre-wrap" class="col s12"
-                      th:text="${topic.displayCode()}">Source code</code>
+                <code style="display:block; white-space:pre-wrap" class="col s12" th:text="${topic.displayCode()}">Source code</code>
             </section>
             <header class="row">
                 <div class="col s12">
-                    <blockquote class="flow-text left" th:text="|Answers: | + ${answers.size()}">
-                        Number of answers
-                    </blockquote>
+                    <blockquote class="flow-text left" th:text="|Answers: | + ${answers.size()}">Number of answers</blockquote>
                 </div>
             </header>
             <section class="row">
@@ -54,9 +47,7 @@
                             Answer's author
                         </span>
                     </a>
-                    <span class="chip left" th:if="${answer.isUseful()}" th:text="|Useful|" style="background-color: #ee6e73;">
-                        Useful
-                    </span>
+                    <span class="chip left" th:if="${answer.isUseful()}" th:text="|Useful|" style="background-color: #ee6e73;">Useful</span>
                     <span class="right" th:text="${answer.displayParsedCreatedDate()}"></span>
                     <span th:if="${topic.getUser().getId() == idUser}">
                         <form th:action="@{/topic/{topic.getId()}}" method="post">
@@ -81,9 +72,7 @@
                         </p>
                     </div>
                     <div class="row">
-                        <code style="display:block; white-space:pre-wrap" class="col s12" th:text="${answer.displayCode()}">
-                            Source code
-                        </code>
+                        <code style="display:block; white-space:pre-wrap" class="col s12" th:text="${answer.displayCode()}">Source code</code>
                     </div>
                 </div>
             </section>
@@ -114,9 +103,7 @@
                     <input type="hidden" name="id_user" th:value="${idUser}"/>
                     <div class="row">
                         <div class="col s12 center">
-                            <button class="btn waves-effect waves-light btn-large" type="submit" name="answer">
-                                Answer
-                            </button>
+                            <button class="btn waves-effect waves-light btn-large" type="submit" name="answer">Answer</button>
                         </div>
                     </div>
                 </form>
