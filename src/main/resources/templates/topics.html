@@ -33,9 +33,7 @@
                                     <td th:text="${topic.getTitle()}">Topic's title</td>
                                     <td>
                                         <a th:href="@{'/profile/' + ${topic.getUser().getId()}}">
-                                            <div class="chip" th:text="${topic.getUser().getUsername()}">
-                                                Topic's author
-                                            </div>
+                                            <div class="chip" th:text="${topic.getUser().getUsername()}">Topic's author</div>
                                         </a>
                                     </td>
                                     <td th:text="${topic.displayParsedCreatedDate()}">Topic's created date</td>
