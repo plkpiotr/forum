@@ -2,6 +2,7 @@ package com.plkpiotr.forum.controllers;
 
 import com.plkpiotr.forum.entities.User;
 import com.plkpiotr.forum.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +16,9 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.time.LocalDateTime;
+
 import java.util.Objects;
 
 @Controller
