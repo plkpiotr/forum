@@ -1,6 +1,7 @@
 package com.plkpiotr.forum.configuration;
 
 import com.plkpiotr.forum.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
