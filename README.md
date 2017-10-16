@@ -36,7 +36,7 @@ Internet forum [in this case about programming language Java] powered by Spring 
 - IntelliJ IDEA 2017.2.4
 - Gradle 3.5.1
 - XAMPP [MySQL]
-## Structure project's
+## Project's structure
 - src:
   - main:
     - java/com/plkpiotr/forum:
