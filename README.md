@@ -40,19 +40,19 @@ Internet forum [in this case about programming language Java] powered by Spring 
 ```elixir
 │   build.gradle
 │
-└───src
-    ├───main
-    │   ├───java
-    │   │   └───com
-    │   │       └───plkpiotr
-    │   │           └───forum
+└───src:
+    ├───main:
+    │   ├───java:
+    │   │   └───com:
+    │   │       └───plkpiotr:
+    │   │           └───forum:
     │   │               │   ForumApplication.java
     │   │               │
-    │   │               ├───configuration
+    │   │               ├───configuration:
     │   │               │       AdditionalLoginConfiguration.java
     │   │               │       SecurityConfiguration.java
     │   │               │
-    │   │               ├───controllers
+    │   │               ├───controllers:
     │   │               │       AnswersController.java
     │   │               │       IndexController.java
     │   │               │       LoginController.java
@@ -61,20 +61,20 @@ Internet forum [in this case about programming language Java] powered by Spring 
     │   │               │       TopicController.java
     │   │               │       TopicsController.java
     │   │               │
-    │   │               ├───entities
+    │   │               ├───entities:
     │   │               │       Answer.java
     │   │               │       Topic.java
     │   │               │       User.java
     │   │               │
-    │   │               └───repositories
+    │   │               └───repositories:
     │   │                       AnswerRepository.java
     │   │                       TopicRepository.java
     │   │                       UserRepository.java
     │   │
-    │   └───resources
+    │   └───resources:
     │       │   application.properties
     │       │
-    │       └───templates
+    │       └───templates:
     │           │   answers.html
     │           │   error.html
     │           │   index.html
@@ -84,15 +84,15 @@ Internet forum [in this case about programming language Java] powered by Spring 
     │           │   topic.html
     │           │   topics.html
     │           │
-    │           └───layout
+    │           └───layout:
     │                   offline.html
     │                   online.html
     │
-    └───test
-        └───java
-            └───com
-                └───plkpiotr
-                    └───forum
+    └───test:
+        └───java:
+            └───com:
+                └───plkpiotr:
+                    └───forum:
                             ForumApplicationTests.java
 ```
 ## Comments
