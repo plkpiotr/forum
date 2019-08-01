@@ -36,47 +36,65 @@ Internet forum [in this case about programming language Java] powered by Spring 
 - IntelliJ IDEA 2017.2.4
 - Gradle 3.5.1
 - XAMPP [MySQL]
-## Project's structure
-- src:
-  - main:
-    - java/com/plkpiotr/forum:
-      - configuration:
-        - AdditionalLoginConfiguration.java
-        - SecurityConfiguration.java
-      - controllers:
-        - AnswersController.java
-        - IndexController.java
-        - LoginController.java
-        - ProfileController.java
-        - RegisterController.java
-        - TopicController.java
-        - TopicsController.java
-      - entities:
-        - Answer.java
-        - Topic.java
-        - User.java
-      - repositories:
-        - AnswerRepository.java
-        - TopicRepository.java
-        - UserRepository.java
-      - ForumApplication.java [main class]
-    - resources:
-      - templates:
-        - layout:
-          - offline.html
-          - online.html
-        - answers.html
-        - error.html
-        - index.html
-        - login.html
-        - profile.html
-        - register.html
-        - topic.html
-        - topics.html
-      - application.properties
-  - test/java/com/plkpiotr/forum
-    - ForumApplicationTests.java [TODO]
-- build.gradle
+## Project structure
+```elixir
+│   build.gradle
+│
+└───src
+    ├───main
+    │   ├───java
+    │   │   └───com
+    │   │       └───plkpiotr
+    │   │           └───forum
+    │   │               │   ForumApplication.java
+    │   │               │
+    │   │               ├───configuration
+    │   │               │       AdditionalLoginConfiguration.java
+    │   │               │       SecurityConfiguration.java
+    │   │               │
+    │   │               ├───controllers
+    │   │               │       AnswersController.java
+    │   │               │       IndexController.java
+    │   │               │       LoginController.java
+    │   │               │       ProfileController.java
+    │   │               │       RegisterController.java
+    │   │               │       TopicController.java
+    │   │               │       TopicsController.java
+    │   │               │
+    │   │               ├───entities
+    │   │               │       Answer.java
+    │   │               │       Topic.java
+    │   │               │       User.java
+    │   │               │
+    │   │               └───repositories
+    │   │                       AnswerRepository.java
+    │   │                       TopicRepository.java
+    │   │                       UserRepository.java
+    │   │
+    │   └───resources
+    │       │   application.properties
+    │       │
+    │       └───templates
+    │           │   answers.html
+    │           │   error.html
+    │           │   index.html
+    │           │   login.html
+    │           │   profile.html
+    │           │   register.html
+    │           │   topic.html
+    │           │   topics.html
+    │           │
+    │           └───layout
+    │                   offline.html
+    │                   online.html
+    │
+    └───test
+        └───java
+            └───com
+                └───plkpiotr
+                    └───forum
+                            ForumApplicationTests.java
+```
 ## Comments
 The content of questions and answers on the screenshots comes from [Stack Overflow](https://stackoverflow.com/).
 I was faced with those problems during creating application.
